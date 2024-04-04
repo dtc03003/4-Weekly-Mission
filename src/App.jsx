@@ -1,17 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SharePage from "./pages/share/SharePage.js";
-import FolderPage from "./pages/folder/FolderPage.js";
+import SharePage from "./pages/share/SharePage";
+import FolderPage from "./pages/folder/FolderPage";
+import { ROUTES_PATHS } from "./constants/path";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SharePage />}></Route>
-        <Route path="/share" element={<SharePage />}></Route>
-        <Route path="/folder" element={<FolderPage />}>
-          <Route index element={<FolderPage />}></Route>
-          <Route path=":id" element={<FolderPage />} />
-        </Route>
+        <Route path="/" element={<SharePage />} />
+        <Route path={ROUTES_PATHS.SHARED} element={<SharePage />} />
+        <Route path={ROUTES_PATHS.FOLDER} element={<FolderPage />} />
+        <Route path={`${ROUTES_PATHS.FOLDER}/:id`} element={<FolderPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUserInfo, getFolders } from "../../api/api";
+import { getUser, getFolders } from "../../api/api";
 import "./SharePage.css";
 import Gnb from "../../components/Gnb";
 import Banner from "../../components/Banner";
@@ -16,7 +16,7 @@ function SharePage() {
   useEffect(() => {
     const loadUserInfo = async () => {
       try {
-        const result = await getUserInfo();
+        const result = await getUser();
         setItems(result);
       } catch (error) {
         console.error(error);

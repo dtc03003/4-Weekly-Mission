@@ -1,51 +1,43 @@
-export async function getUserInfo() {
-  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/sample/user`);
+import http from "./http";
 
-  if (!response.ok) {
+export async function getUser() {
+  try {
+    const response = await http.get("/sample/user");
+    return response.data;
+  } catch (error) {
     throw new Error("유저정보를 불러오는데 실패했습니다.");
   }
-
-  const body = await response.json();
-
-  return body;
 }
 
 export async function getFolders() {
-  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/sample/folder`);
-
-  if (!response.ok) {
+  try {
+    const response = await http.get("/sample/folder");
+    return response.data;
+  } catch (error) {
     throw new Error("카드를 불러오는데 실패했습니다.");
   }
-
-  const body = await response.json();
-
-  return body;
 }
 
 export async function getUserFolders(folderId) {
-  let url = `${process.env.REACT_APP_BASE_URL}/users/1/links`;
+  let url = "/users/1/links";
 
   if (folderId) {
     url += `?folderId=${folderId}`;
   }
 
-  const response = await fetch(url);
-
-  if (!response.ok) {
+  try {
+    const response = await http.get(url);
+    return response.data;
+  } catch (error) {
     throw new Error("카드를 불러오는데 실패했습니다.");
   }
-
-  const body = await response.json();
-  return body;
 }
 
 export async function getButtonList() {
-  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/users/1/folders`);
-
-  if (!response.ok) {
+  try {
+    const response = await http.get("/users/1/folders");
+    return response.data;
+  } catch (error) {
     throw new Error("버튼 리스트를 불러오는데 실패했습니다.");
   }
-
-  const body = await response.json();
-  return body;
 }

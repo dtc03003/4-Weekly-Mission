@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 import "./Banner.css";
-import { getUserInfo } from "../api/api";
+import { getUser } from "../api/api";
 import avatarImg from "../assets/png/avatar.png";
 
 function Banner() {
-  const [userData, setItems] = useState([]);
+  const [users, setUsers] = useState({});
 
   useEffect(() => {
-    const handleLoad = async () => {
+    const loadUserData = async () => {
       try {
-        const result = await getUserInfo();
-        setItems(result);
+        const result = await getUser();
+        setUsers(result);
       } catch (error) {
         console.error(error);
 
         return;
       }
     };
-
-    handleLoad();
+    loadUserData();
   }, []);
 
   return (
@@ -29,7 +28,7 @@ function Banner() {
             <div className="banner_user_avatar">
               <img src={avatarImg} alt="" />
             </div>
-            <div className="banner_user_name">@{userData.name}</div>
+            <div className="banner_user_name">@{users.name}</div>
           </div>
           <div className="banner_title">⭐️ 즐겨찾기</div>
         </div>

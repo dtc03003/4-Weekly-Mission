@@ -1,13 +1,11 @@
-import CardListItem from "./CardListItem";
+import Card from "./Card";
 import "./CardList.css";
 
 function CardList({ items }) {
   return (
     <ul className="card_list">
       {items.map((item) => (
-        <CardListItem item={item} key={item.id}>
-          <li />
-        </CardListItem>
+        <Card item={item} key={item.id} />
       ))}
     </ul>
   );

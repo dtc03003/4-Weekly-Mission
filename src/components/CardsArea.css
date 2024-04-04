@@ -1,8 +1,8 @@
-.card {
+.card_area {
   margin-bottom: 60px;
 }
 
-.card_inner {
+.card_wrapper {
   display: flex;
   width: 1060px;
   margin: auto;
@@ -16,7 +16,7 @@
 }
 
 @media (max-width: 1124px) {
-  .card_inner {
+  .card_wrapper {
     width: auto;
     margin: 32px;
   }

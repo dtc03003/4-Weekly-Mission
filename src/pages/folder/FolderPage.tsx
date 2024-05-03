@@ -12,12 +12,12 @@ import pen_icon from "../../assets/svg/pen.svg";
 import share_icon from "../../assets/svg/share.svg";
 import delete_icon from "../../assets/svg/delete.svg";
 import ButtonGroup from "../../components/ButtonGroup";
-import { UserData, FolderData, ButtonData } from "@/src/types/type";
+import { UserData, FolderData, ButtonData } from "types/type";
 
 function FolderPage() {
-  const [users, setUsers] = useState<UserData | undefined>();
-  const [folders, setFolders] = useState<FolderData | undefined>();
-  const [buttons, setButtons] = useState<ButtonData | undefined>();
+  const [users, setUsers] = useState<UserData>();
+  const [folders, setFolders] = useState<FolderData[]>();
+  const [buttons, setButtons] = useState<ButtonData[]>();
   // const [folderTitle, setFolderTitle] = useState("전체");
   const [folderTitle] = useState("전체");
   // const [isLoading, setIsLoading] = useState(false);
@@ -74,9 +74,7 @@ function FolderPage() {
 
     loadUserFoldersData();
   }, [id]);
-
-  console.log(folders);
-
+  
   return (
     <div className="folderPage">
       <Gnb userEmail={users?.email} />
@@ -105,7 +103,7 @@ function FolderPage() {
         </div>
         {folders ? (
           <div>
-            <CardsArea foldersData={folders} />
+            <CardsArea folderList={folders} />
           </div>
         ) : (
           <div className="folder_no_link">저장된 링크가 없습니다.</div>

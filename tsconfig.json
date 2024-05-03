@@ -13,8 +13,29 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "api/*": [
+        "src/api/*"
+      ],
+      "assets/*": [
+        "src/assets/*"
+      ],
+      "components/*": [
+        "src/components/*"
+      ],
+      "constants/*": [
+        "src/constants/*"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ],
+      "types/*":[
+        "src/types/*"
+      ],
+      "util/*": [
+        "src/util/*"
+      ],
     },
     "typeRoots": ["./node_modules/@types", "@types"]
   },

@@ -14,6 +14,10 @@ export interface FolderData {
   imageSource?: string;
 }
 
+export interface FolderProps{
+  folderList: FolderData[] | undefined;
+}
+
 export interface ButtonData {
   id: number;
   created_at: string;
@@ -22,6 +26,11 @@ export interface ButtonData {
   favorite: boolean;
   link?: any;
 }
+
+
+export interface ButtonGroupProps {
+  buttonList: ButtonData[] | undefined;
+};
 
 export interface Icon {
   id: number;

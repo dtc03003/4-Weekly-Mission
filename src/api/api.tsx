@@ -18,8 +18,8 @@ export async function getFolders() {
   }
 }
 
-export async function getUserFolders(folderId: string | undefined) {
-  let url = "/users/1/links";
+export async function getUserFolders(userId: string = '1', folderId?: string ) {
+  let url = "/users/${userId}/links";
 
   if (folderId) {
     url += `?folderId=${folderId}`;
@@ -33,9 +33,9 @@ export async function getUserFolders(folderId: string | undefined) {
   }
 }
 
-export async function getButtonList() {
+export async function getButtonList(userId: string = '1') {
   try {
-    const response = await http.get("/users/1/folders");
+    const response = await http.get("/users/${userId}/folders");
     return response.data;
   } catch (error) {
     throw new Error("버튼 리스트를 불러오는데 실패했습니다.");

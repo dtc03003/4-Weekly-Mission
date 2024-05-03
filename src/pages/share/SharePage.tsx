@@ -6,11 +6,11 @@ import Banner from "../../components/Banner";
 import SearchBar from "../../components/SearchBar";
 import CardsArea from "../../components/CardsArea";
 import Footer from "../../components/Footer";
-import { FolderData, UserData } from "@/src/types/type";
+import { FolderData, UserData } from "../../types/type";
 
 function SharePage() {
   const [users, setUsers] = useState<UserData | undefined>();
-  const [folders, setFolders] = useState<FolderData | undefined>();
+  const [folders, setFolders] = useState<FolderData[]>();
   // const [isLoading, setIsLoading] = useState(false);
   // const [error, setError] = useState(null);
 
@@ -53,7 +53,7 @@ function SharePage() {
       <Banner userName={users?.name} />
       <div className="sharePage_contents">
         <SearchBar />
-        <CardsArea foldersData={folders} />
+        <CardsArea folderList={folders} />
       </div>
       <Footer />
     </div>

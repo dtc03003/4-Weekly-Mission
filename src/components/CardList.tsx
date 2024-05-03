@@ -1,10 +1,11 @@
+import { FolderData, FolderProps } from "types/type";
 import Card from "./Card";
 import "./CardList.css";
 
-function CardList({ items }: any) {
+function CardList({ folderList }: FolderProps) {
   return (
     <ul className="card_list">
-      {items ? items.map((item: any) => <Card item={item} key={item.id} />) : null}
+      {folderList ? folderList.map((item: FolderData) => <Card cardList={item} key={item.id} />) : null}
     </ul>
   );
 }
